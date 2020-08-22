@@ -1,6 +1,6 @@
 import os
 import pyttsx3
-
+import random
 print()
 print("\t\t\t\t========================================")
 print("\t\t\t\t||  Tell me, what can I do for you?   ||")
@@ -19,10 +19,11 @@ def my():
 		print("Nothing")
 
 print()
-
-print("Sample Input : 'run notepad' or 'open paint' or 'launch chrome'")
+thank = ["My pleasure ", "Anytime ", "Anything for you ", "Mention Not ", "Welcome "]
+print(" Sample Input : 'run notepad' or 'open paint' or 'launch chrome'")
+print()
 while True:
-	x = input(" Enter the program to launch: ").lower()
+	x = input(" Enter your query: ").lower()
 	if ((("run" in x) or ("open" in x) or ("launch" in x)) and (("notepad" in x) or ("editor" in x))):
 		y = "notepad"
 		my()
@@ -62,6 +63,17 @@ while True:
 		print("\n :) See you next time!")
 		pyttsx3.speak("See you next time")
 		break
+	elif (("thank you" in x) or ("thanks" in x)):
+		p = random.choice(thank)
+		pyttsx3.speak(p)
+		print(" "+p)
+		print(" ------------------------------------")
+				
+
+	elif ("help" in x):
+		pyttsx3.speak("These are options available for now")
+		print(" 1.Notepad \n 2.Paint \n 3.File Explorer \n 4.Chrome \n 5.Powerpoint \n 6.Excel \n 7.Word")
+
 	else:
 		print(" :( Wrong Input!")
 		pyttsx3.speak("Wrong Input, try again")
